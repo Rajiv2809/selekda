@@ -1,58 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Head Soccer</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <canvas id="canvas" class="hidden"></canvas>
 
-    <div class="welcome">
+    <div class="intrucion hidden">
         <h1>Game Instructions</h1>
         <p>1. Fill in your username and click "Agree" to proceed.</p>
         <p>2. Fill in your username and click "Agree" to proceed.</p>
         <p>3. Fill in your username and click "Agree" to proceed.</p>
         <p>3. Fill in your username and click "Agree" to proceed.</p>
         <div>.</div>
-        <input type="text" id="username" placeholder="Enter your username">
-        <button id="agree" disabled>Agree</button>
+
+        <button id="close">close</button>
     </div>
-    <div class="character-setup hidden ">
-        <h1>Character Selection</h1>
-        <p>Select your character, stage, and level to start the game.</p>
+    <div class="character-setup  ">
         <div>
-            <h2>Country </h2>
-            <div class="cr-list">
-           
-            <select name="country" id="country">
-                <option value="">Choose Country</option>
-                <option value="germany">germany</option>
-                <option value="ingris">ingris</option>
-                <option value="brazil">brazil</option>
-            </select>
-            </div>
-           
+            <input type="text" id="username" placeholder="Enter your username">
         </div>
         <div>
-            <h2>ball </h2>
-            <div class="cr-list">
-           
-            <select name="ball" id="ball">
-                <option value="">Choose ball</option>
-                <option value="ball1">ball1</option>
-                <option value="ball2">ball2</option>
-            </select>
+            <div class="country-div">
+                <select name="country" id="country">
+                    <option value="">Choose Country</option>
+                    <option value="germany">germany</option>
+                    <option value="ingris">ingris</option>
+                    <option value="brazil">brazil</option>
+                </select>
             </div>
-           
+            <div class="openentCOuntry">
+
+                <select name="OpenetCountry" id="OpenetCountry">
+                    <option value="">Choose Country</option>
+                    <option value="germany">germany</option>
+                    <option value="ingris">ingris</option>
+                    <option value="brazil">brazil</option>
+                </select>
+            </div>
+
         </div>
-
-      
-
-        
         <div>
-            <h2>Level</h2>
             <select name="level" id="level">
                 <option value="">Choose Level</option>
                 <option value="easy">Easy</option>
@@ -60,7 +53,18 @@
                 <option value="hard">Hard</option>
             </select>
         </div>
+        <div>
+
+            
+        </div>
         <button id="play" disabled>Play</button>
+
+    </div>
+
+
+
+
+  
     </div>
     <div class="countdown hidden">
         <h1 id="countdown-timer">3</h1>
@@ -70,4 +74,5 @@
     <script src="main.js"></script>
     <script src="Player.js"></script>
 </body>
+
 </html>
