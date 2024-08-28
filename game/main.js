@@ -7,6 +7,7 @@ class Game {
         this.country = null;
         this.ball = null;
         this.level = null;
+        this.enemy = null;
         this.startGame = false;
     }
     render() {
@@ -26,8 +27,9 @@ class Menu {
         
         this.agreeButton = document.getElementById('agree');
         this.countrySelect = document.getElementById('country');
+        this.enemyCountrySelect = document.getElementById('enemyCountry');
         this.levelSelect = document.getElementById('level');
-        this.ballSelect = document.getElementById('ball');
+    
         this.usernameInput = document.getElementById('username');
         this.playButton = document.getElementById('play');
         
@@ -36,15 +38,15 @@ class Menu {
     
     setupEventListeners() {
 
-        this.usernameInput.addEventListener('input', () => {
-            this.agreeButton.disabled = !this.usernameInput.value.trim();
-        });
+        // this.usernameInput.addEventListener('input', () => {
+        //     this.agreeButton.disabled = ;
+        // });
 
 
-        this.agreeButton.addEventListener('click', () => {
-            this.username = this.usernameInput.value.trim();
-            this.showGameSetup();
-        });
+        // this.usernameInput.addEventListener('input', () => {
+           
+        //     this.showGameSetup();
+        // });
 
         this.levelSelect.addEventListener('change', () => {
             this.game.level = this.levelSelect.value;
@@ -55,18 +57,22 @@ class Menu {
             this.game.country = this.countrySelect.value;
             this.checkPlayButton();
         });
-        
-        this.ballSelect.addEventListener('change', () => {
-            this.game.ball = this.ballSelect.value;
+        this.enemyCountrySelect.addEventListener('change', () => {
+            this.game.enemy = this.enemyCountrySelect.value;
             this.checkPlayButton();
         });
+        
+        
         this.playButton.addEventListener('click', () => {
+            this.game.username = this.usernameInput.value.trim();
             this.startCountdown();
         });
     }
     
     checkPlayButton() {
-        this.playButton.disabled = !(this.game.country && this.game.ball && this.game.level);
+    
+        
+        this.playButton.disabled = !(this.game.country && this.game.enemy && this.game.level);
     }
 
     showGameSetup() {

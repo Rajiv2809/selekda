@@ -19,7 +19,7 @@ body {
     margin: 0;
 
     overflow: hidden;
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(49, 47, 160);
 }
 
 .hidden {
@@ -35,6 +35,6 @@ body {
 }
 
 .welcome {
-    border: 2px solid black;
+    border: 2px solid rgb(64, 51, 241);
     padding: 3rem;
 }
