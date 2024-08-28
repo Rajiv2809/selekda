@@ -8,8 +8,48 @@
 </head>
 <body>
     <canvas id="canvas" class="hidden"></canvas>
-    
+
+    <div class="welcome">
+        <h1>Game Instructions</h1>
+        <p>1. Fill in your username and click "Agree" to proceed.</p>
+        <p>2. Fill in your username and click "Agree" to proceed.</p>
+        <p>3. Fill in your username and click "Agree" to proceed.</p>
+        <p>3. Fill in your username and click "Agree" to proceed.</p>
+        <div>.</div>
+        <input type="text" id="username" placeholder="Enter your username">
+        <button id="agree" disabled>Agree</button>
+    </div>
+    <div class="character-setup hidden ">
+        <h1>Character Selection</h1>
+        <p>Select your character, stage, and level to start the game.</p>
+        <div>
+            <h2>Country </h2>
+            <div class="cr-list">
+           
+            <select name="country" id="country">
+                <option value="">Choose Country</option>
+                <option value="germany">germany</option>
+                <option value="ingris">ingris</option>
+                <option value="brazil">brazil</option>
+            </select>
+            </div>
+           
+        </div>
+      
+        
+        <div>
+            <h2>Level</h2>
+            <select name="level" id="level">
+                <option value="">Choose Level</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <button id="play" disabled>Play</button>
+    </div>
+
     <script src="main.js"></script>
-    <script src="main.js"></script>
+    <script src="Player.js"></script>
 </body>
 </html>

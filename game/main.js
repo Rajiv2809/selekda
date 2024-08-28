@@ -10,10 +10,29 @@ class Game {
 }
 class Menu {
     constructor(game){
-        
+        this.game = game;
+        this.instructionDiv = document.querySelector('.welcome');
+        this.setUpGame = document.querySelector('.character-setup');
+
+
+
+        this.agreeButton = document.getElementById('agree');
+        this.usernameInput = document.getElementById('username');
     }
     setupEventListeners() {
-    
+        this.usernameInput.addEventListener('input', () => {
+            this.agreeButton.disabled = !this.usernameInput.value.trim();
+        });
+
+        this.agreeButton.addEventListener('click', () => {
+            this.username = this.usernameInput.value.trim();
+            this.showGameSetup();
+        });
+        
+    }
+    showGameSetup() {
+        this.instructionDiv.classList.add('hidden');
+        this.setUpGame.classList.remove('hidden');
     }
 }
 

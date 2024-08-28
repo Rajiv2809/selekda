@@ -1,4 +1,4 @@
-#canvas{ 
+#canvas {
     border: 1px solid white;
     position: absolute;
     top: 50%;
@@ -9,6 +9,7 @@
     transform: translate(-50%, -50%);
     border: 3px solid black;
 }
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -16,10 +17,24 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
- 
+
     overflow: hidden;
     background-color: rgb(41, 41, 41);
 }
+
 .hidden {
     display: none;
+}
+
+.instruction,
+.character-setup,
+.countdown {
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+}
+
+.instruction {
+    border: 2px solid black;
+    padding: 3rem;
 }
