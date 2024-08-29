@@ -34,19 +34,19 @@ nav button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #333;
+
 }
 
 .slider {
-    width: 800px;
-    height: 500px;
+    width: 1200px;
+    height: 735px;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .slides {
     width: 500%;
-    height: 500px;
+    height: 735px;
     display: flex;
 
 }
@@ -61,20 +61,20 @@ nav button {
 }
 
 .slide img {
-    width: 800px;
-    height: 500px;
+    width: 1200px;
+    height: 735px;
 }
 
 .navigation-manual {
     position: absolute;
-    width: 800px;
+    width: 1200px;
     margin-top: -40px;
     display: flex;
     justify-content: center;
 }
 
 .manual-btn {
-    border: 2px solid #40D3DC;
+    border: 2px solid #3371B8;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
@@ -86,7 +86,7 @@ nav button {
 }
 
 .manual-btn:hover {
-    background: #40D3DC;
+    background: #3371B8;
 }
 
 #radio1:checked~.first {
@@ -105,17 +105,16 @@ nav button {
     margin-left: -60%;
 }
 
-/* css for automatic navigation */
 .navigation-auto {
     position: absolute;
     display: flex;
-    width: 800px;
+    width: 1200px;
     justify-content: center;
-    margin-top: 460px;
+    margin-top: 695px;
 }
 
 .navigation-auto div {
-    border: 2px solid #40D3DC;
+    border: 2px solid #3371B8;
     padding: 5px;
     border-radius: 10px;
     transition: 1s;
@@ -127,17 +126,69 @@ nav button {
 }
 
 #radio1:checked~.navigation-auto .auto-btn1 {
-    background: #40D3DC;
+    background: #3371B8;
 }
 
 #radio2:checked~.navigation-auto .auto-btn2 {
-    background: #40D3DC;
+    background: #3371B8;
 }
 
 #radio3:checked~.navigation-auto .auto-btn3 {
-    background: #40D3DC;
+    background: #3371B8;
 }
 
 #radio4:checked~.navigation-auto .auto-btn4 {
-    background: #40D3DC;
+    background: #3371B8;
 }
+
+.galery{
+    display: flex;
+    gap: 3rem;
+    margin: auto;
+    justify-content: center;
+    color: #D9D9D9;
+    font-weight: 800;
+}
+.galery div{
+    display: flex;
+    flex-direction: column;
+    background-color: #3371B8;
+    border-radius: 25px;
+}
+.galery div img{
+    border-radius: 25px;
+}
+.galery div p{
+    margin: 20px;
+    font-size: large;
+}
+.about{
+    
+    background-color: #3371B8;
+    margin: 40px 120px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    padding: 80px 160px;
+    border-radius: 50px 50px 0 0 ;
+    height: 800px;
+    
+    
+}
+.about img{
+    border-radius: 209px;
+}
+.text{
+    font-size: 20px;
+    padding: 0 60px;
+    color: #D9D9D9;
+}
+.text button{
+    border: none;
+    padding: 10px 20px;
+    background-color: #D9D9D9;
+    color: #3371B8;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+.
