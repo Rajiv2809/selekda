@@ -10,6 +10,7 @@ class Game {
         this.enemy = null;
         this.startGame = true;
         this.player = new Player(this);
+        this.Background= new Background(this)
         window.addEventListener('keydown', e => {
             if (!this.gameOver) {
 
@@ -25,8 +26,9 @@ class Game {
         });
     }
     render() {
-       this.player.draw();
-       this.player.update();
+        this.Background.draw()
+        this.player.update();
+        this.player.draw();
     }
 }
 

@@ -1,10 +1,10 @@
 class Player {
     constructor(game) {
         this.game = game;
-        this.x = game.width - (game.width/2) - 40; 
-        this.y = game.height - 40 - (game.height/2); 
-        this.spriteHeight = 40;
-        this.spriteWidth = 40;
+        this.x = 200; 
+        this.y = game.height - 200; 
+        this.spriteHeight = 80;
+        this.spriteWidth = 80;
         this.height = 40;
         this.width = 40;
         this.speedX = 0; 
@@ -19,6 +19,7 @@ class Player {
     draw() {
         this.game.ctx.fillStyle = 'red';
         this.game.ctx.fillRect(this.x, this.y, this.spriteWidth, this.spriteHeight);
+        
     }
 
     update() {
@@ -29,22 +30,23 @@ class Player {
 
    
         if (this.isTouchingBottom()) {
-            this.y = this.game.height - this.height;
+            this.y = this.game.height - this.height-100;
             this.speedY = 0;
             this.grounded = true;
         } else {
             this.grounded = false;
         }
 
-
-       
-      
-
-      
+        if (this.touchingLeft()) {
+            this.x = 0;
+        }
+        if (this.touchingRight()) {
+            this.x  = this.game.width - this.spriteWidth - 200;
+        }
     }
 
     isTouchingBottom() {
-        return this.y >= this.game.height - this.height;
+        return this.y >= this.game.height - this.height - 100;
     }
 
     isTouchingTop() {
@@ -83,15 +85,6 @@ class Player {
         return this.x >= this.game.width - this.spriteWidth - 200;
     }
 
-    checkCollisionWithMeteors(){
-        this.game.meteors.forEach(meteor => {
-            if(this.isCollidingMeteors(meteor)){
-                this.game.health = this.game.health - 1;
-                console.log(this.game.health);
-                this.game.meteors.splice(this.game.meteors.indexOf(meteor), 1);
-            }
-        })
-    }
 
   
   
