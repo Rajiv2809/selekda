@@ -22,28 +22,29 @@ class Game {
                 if (e.key.toLowerCase() === 'd') this.player.startMoveRight();
                 if (e.key.toLowerCase() === 'a') this.player.startMoveLeft();
                 if (e.key.toLowerCase() === 'w') this.player.playerJump();
-                if (e.key.toLowerCase() === ' ') this.playerKickBall();
+                if (e.key === ' ') { 
+                    this.player.kicking = true; 
+                }
+        
             }
         });
 
         window.addEventListener('keyup', e => {
             if (e.key.toLowerCase() === 'd') this.player.stopMoveRight();
             if (e.key.toLowerCase() === 'a') this.player.stopMoveLeft();
+            if (e.key === ' ') {
+                this.player.kicking = false; 
+            }
         });
     }
-    playerKickBall() {
-        this.player.playerKick(this.ball); 
-    }
     render() {
-        this.background.draw();
+        this.background.draw()
         this.gawang.draw();
         this.gawang2.draw();
-
+        
+        this.ball.update(); 
+        this.ball.draw(); 
         this.player.update(this.ball);
-        this.ball.update();
-
-
-        this.ball.draw();
         this.player.draw();
     }
 }

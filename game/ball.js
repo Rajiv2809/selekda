@@ -17,6 +17,7 @@ class Ball {
         this.platformY = game.height - 100;
         this.platformHeight = 20;
         this.platformWidth = game.width; 
+        
     }
 
     update() {

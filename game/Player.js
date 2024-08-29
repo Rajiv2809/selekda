@@ -1,37 +1,33 @@
 class Player {
     constructor(game) {
         this.game = game;
-        this.x = 200; 
-        this.y = game.height - 200; 
+        this.x = 200;
+        this.y = game.height - 200;
         this.spriteHeight = 80;
         this.spriteWidth = 80;
         this.height = 40;
         this.width = 40;
-        this.speedX = 0; 
-        this.maxSpeedX = 4; 
-        this.speedY = 0; 
-        this.jumpSpeed = -10; 
+        this.speedX = 0;
+        this.maxSpeedX = 4;
+        this.speedY = 0;
+        this.jumpSpeed = -10;
         this.gravity = 0.35;
-        this.grounded = false; 
+        this.grounded = false;
         this.boostedSpeedX = 6;
     }
 
     draw() {
         this.game.ctx.fillStyle = 'red';
         this.game.ctx.fillRect(this.x, this.y, this.spriteWidth, this.spriteHeight);
-        
     }
 
-
     update(ball) {
-
         this.speedY += this.gravity;
         this.y += this.speedY;
         this.x += this.speedX;
 
-   
         if (this.isTouchingBottom()) {
-            this.y = this.game.height - this.height-120;
+            this.y = this.game.height - this.height - 120;
             this.speedY = 0;
             this.grounded = true;
         } else {
@@ -42,10 +38,15 @@ class Player {
             this.x = 50;
         }
         if (this.touchingRight()) {
-            this.x  = this.game.width - this.spriteWidth - 50;
+            this.x = this.game.width - this.spriteWidth - 50;
         }
-        this.playerKick(ball)
+
+        // Check for collision with the ball and handle bouncing
+        if (this.isCollidingWithBall(ball)) {
+            this.handleBallCollision(ball);
+        }
     }
+
     isCollidingWithBall(ball) {
         const ballRight = ball.x + ball.radius;
         const ballLeft = ball.x - ball.radius;
@@ -58,26 +59,36 @@ class Player {
         const playerBottom = this.y + this.height;
 
         return ballRight > playerLeft &&
-               ballLeft < playerRight &&
-               ballBottom > playerTop &&
-               ballTop < playerBottom;
+            ballLeft < playerRight &&
+            ballBottom > playerTop &&
+            ballTop < playerBottom;
     }
-
 
     handleBallCollision(ball) {
-        const dx = ball.x - (this.x + this.width / 2);
-        const dy = ball.y - (this.y + this.height / 2);
+        const ballCenterX = ball.x;
+        const ballCenterY = ball.y;
+        const playerCenterX = this.x + this.width / 2;
+        const playerCenterY = this.y + this.height / 2;
+
+        const dx = ballCenterX - playerCenterX;
+        const dy = ballCenterY - playerCenterY;
         const angle = Math.atan2(dy, dx);
 
-        ball.dx = -Math.cos(angle) * ball.dx;
-        ball.dy = -Math.sin(angle) * ball.dy;
+        const speed = Math.sqrt(ball.dx * ball.dx + ball.dy * ball.dy);
+        ball.dx = Math.cos(angle) * speed;
+        ball.dy = Math.sin(angle) * speed;
 
+        const overlap = ball.radius - Math.sqrt(dx * dx + dy * dy);
+        if (overlap > 0) {
+            ball.x += Math.cos(angle) * overlap;
+            ball.y += Math.sin(angle) * overlap;
+        }
 
-        ball.x += ball.dx;
-        ball.y += ball.dy;
+        
+        ball.dx *= 1.1;
+        ball.dy *= 1.1;
     }
-
-   
+    
 
     isTouchingBottom() {
         return this.y >= this.game.height - this.height - 120;
@@ -109,10 +120,6 @@ class Player {
             this.grounded = false;
         }
     }
-    playerKick(){
-
-    }
-
 
     touchingLeft() {
         return this.x <= 50;
@@ -121,74 +128,4 @@ class Player {
     touchingRight() {
         return this.x >= this.game.width - this.spriteWidth - 50;
     }
-
-
-  
-  
-   
-    checkIfPlayerFall(){
-        if(this.y >= this.game.height -this.height){
-            this.x = this.game.width - (this.game.width/2) - 40;
-            this.y = this.game.height - 40 - (this.game.height/2);
-            this.game.health = this.game.health - 1;
-        }
-    }
-    isCollidindBox(box){
-        const playerRight = this.x + this.width;
-        const playerBottom = this.y + this.height;
-        const boxRight = box.x + box.width;
-        const boxBottom = box.y + box.height;
-        return this.x < boxRight &&
-            playerRight > box.x &&
-            this.y < boxBottom &&
-            playerBottom > box.y;
-    }
-    checkCollidingBox(){
-        this.game.boxes.forEach(box => {
-            if(this.isCollidindBox(box)){
-                if(box.color === 0){
-                    this.game.health = this.game.health - 1;
-                    this.game.boxes.splice(this.game.boxes.indexOf(box), 1)
-                } else if(box.color === 1){
-                    this.maxSpeedX = this.boostedSpeedX;
-                    setTimeout(() => {
-                        this.maxSpeedX = 4;
-                    }, 3000);
-                    this.game.boxes.splice(this.game.boxes.indexOf(box), 1);
-                }else if(box.color === 2){
-                    if(this.game.health < 5){
-                        this.game.health = this.game.health + 1;
-                    }
-
-                    this.game.boxes.splice(this.game.boxes.indexOf(box), 1)
-                }else if(box.color === 3){
-                    this.game.lifeTime = this.game.lifeTime + 10000
-                    this.game.boxes.splice(this.game.boxes.indexOf(box), 1)
-                }
-                
-
-            }
-        })
-        
-        
-    }
-
-    isTouchingPlatform(platform) {
-        const playerBottom = this.y + this.height;
-        const playerRight = this.x + this.width;
-        const playerLeft = this.x;
-
-        const platformTop = platform.y;
-        const platformRight = platform.x + platform.width;
-        const platformLeft = platform.x;
-
-        // Check if the player is falling onto the platform
-        if (playerBottom >= platformTop && playerBottom <= platformTop + this.speedY &&
-            playerRight > platformLeft && playerLeft < platformRight) {
-            return true;
-        }
-        return false;
-    }
-
-    
 }
