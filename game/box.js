@@ -1,5 +1,0 @@
-class Box{
-    constructor(game){
-        
-    }
-}

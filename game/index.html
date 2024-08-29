@@ -1,82 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Head Soccer</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Head Football </title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-
 <body>
-    <img  alt="">
-    <canvas id="canvas" class=""></canvas>
 
-    <div class="intrucion hidden">
-        <h1>Game Instructions</h1>
-        <p>1. Fill in your username and click "Agree" to proceed.</p>
-        <p>2. Fill in your username and click "Agree" to proceed.</p>
-        <p>3. Fill in your username and click "Agree" to proceed.</p>
-        <p>3. Fill in your username and click "Agree" to proceed.</p>
-        <div>.</div>
-
-        <button id="close">close</button>
-    </div>
-    <div class="character-setup hidden  ">
-        <div>
-            <input type="text" id="username" placeholder="Enter your username">
-        </div>
-        <div>
-            <div class="country-div">
-                <select name="country" id="country">
-                    <option value="">Choose Country</option>
-                    <option value="germany">germany</option>
-                    <option value="ingris">ingris</option>
-                    <option value="brazil">brazil</option>
+<div class="game-welcome">
+    <!-- S: Game Menu -->
+    <section>
+        <h1>World Head Football</h1>
+        <div class="input-group flex">
+            <label for="input-player-name" aria-label="Input player username">Player</label>
+            <div>
+                <input type="text" id="input-player-name">
+                <select class="select" name="" id="select-player-country">
+                    <option value="">Select Player Country</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="England">England</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Spain">Spain</option>
                 </select>
             </div>
-            <div class="openentCOuntry">
+        </div>
 
-                <select name="enemyCountry" id="enemyCountry">
-                    <option value="">Choose Openent Country</option>
-                    <option value="germany">germany</option>
-                    <option value="ingris">ingris</option>
-                    <option value="brazil">brazil</option>
+        <div class="input-group flex">
+            <label>Opponent</label>
+            <div>
+                <select class="select" name="" id="select-level">
+                    <option value="">Select Level</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+                <div class="flex row">
+                    <select class="select" name="" id="select-opponent-country">
+                        <option value="">Opponent Country</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="England">England</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Spain">Spain</option>
+                    </select>
+                    <button id="btn-randomize">Random</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group flex">
+            <label for="select-ball">Select Ball</label>
+            <div>
+                <select class="select" name="" id="select-ball">
+                    <option value="">Select Ball</option>
+                    <option value="Ball 01">Ball 01</option>
+                    <option value="Ball 02">Ball 02</option>
                 </select>
             </div>
+        </div>
 
+        <div class="button-wrapper">
+            <button id="btn-play" disabled>Play</button>
+            <button id="btn-instruction">Instruction</button>
         </div>
-        <div>
-            <select name="level" id="level">
-                <option value="">Choose Level</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-        </div>
-        <div>
+    </section>
+    <!-- E: Game Menu -->
 
-            
-        </div>
-        <button id="play" disabled>Play</button>
+
+    <!-- S: Game Instruction -->
+    <section class="instruction">
+        <h1>Game Instruction</h1>
+        <ol>
+            <li>Fill username and select player country</li>
+            <li>Select level and opponent country, <br> or you can click "random" button to choose <br> random country
+                for opponent
+            </li>
+            <li>Choose ball you want</li>
+            <li>Click play button</li>
+            <li>You can win the game if your score higher than <br> opponent score, and the timeout is over</li>
+            <li>Enjoy the game!</li>
+        </ol>
+
+        <button id="btn-close">X</button>
+    </section>
+    <!-- E: Game Instruction -->
+</div>
+
+<!-- S: Playground -->
+<main class="playground">
+    <div class="flag-list-wrapper">
 
     </div>
 
+    <div class="wrapper">
+        <p class="playername">Andiay</p>
 
+        <section>
+            <div>
+                <img class="player-flag" src="./assets/Sprites/Flag/Brazil.png" alt="">
 
+                <div class="score-wrapper">
+                    <p class="score-player">2</p>
+                    <p class="score-opponent">0</p>
+                </div>
 
-  
+                <img class="opponent-flag" src="./assets/Sprites/Flag/Brazil.png" alt="">
+            </div>
+            <div class="info-wrapper">
+                <p class="player-country">Brazil</p>
+
+                <div class="timeleft-wrapper">
+                    <p>TIMER</p>
+                    <h2 class="timeleft">30</h2>
+                </div>
+
+                <p class="opponent-country">Brazil</p>
+            </div>
+        </section>
+
+        <button id="btn-match-history">MATCH HISTORY</button>
     </div>
-    <div class="countdown hidden">
-        <h1 id="countdown-timer">3</h1>
+</main>
+<!-- E: Playground -->
+
+<!-- S: Modal Components -->
+<div class="modal modal-countdown hide">
+    <h1 class="countdown">3</h1>
+</div>
+
+<div class="modal modal-pause hide">
+    <h1>Game Paused</h1>
+</div>
+
+<div class="modal modal-game-over hide">
+    <h1>Game Over</h1>
+    <div class="wrapper">
+        <section>
+            <div>
+                <img class="player-flag" src="./assets/Sprites/Flag/Brazil.png" alt="">
+
+                <div class="score-wrapper">
+                    <p class="score-player">2</p>
+                    <p class="score-opponent">0</p>
+                </div>
+
+                <img class="opponent-flag" src="./assets/Sprites/Flag/Brazil.png" alt="">
+            </div>
+            <div class="info-wrapper">
+                <p class="player-country-name">Brazil</p>
+
+                <p class="opponent-country">Brazil</p>
+            </div>
+
+            <div class="btn-wrapper">
+                <button id="btn-restart">Restart</button>
+                <button id="btn-save">Save Match History</button>
+            </div>
+        </section>
     </div>
 
 
-    <script src="main.js"></script>
-    <script src="background.js"></script>
-    <script src="Player.js"></script>
-    <script src="ball.js"></script>
-    <script src="Gawang.js"></script>
+</div>
+
+
+<div class="modal modal-history hide">
+    <button id="btn-close-history">X</button>
+    <section>
+        <select name="" id="select-orderby">
+            <option value="">Sort By</option>
+            <option value="score">Score</option>
+            <option value="last-match">Last Match</option>
+        </select>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Playername</th>
+                <th>Player Score</th>
+                <th>Player Country</th>
+                <th>Opponent Score</th>
+                <th>Opponent Country</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Andi</td>
+                <td>2</td>
+                <td>Japan</td>
+                <td>3</td>
+                <td>Brazil</td>
+                <td>12-20-2024</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<!-- E: Modal Components -->
+
+<script>
+    const playground = document.querySelector('.playground');
+    const playgroundBgs = ['url("./assets/Sprites/background1.jpg")', 'url("./assets/Sprites/background2.jpg")']
+    document.addEventListener('DOMContentLoaded', function () {
+        playground.style.backgroundImage = playgroundBgs[Math.floor(Math.random() * playgroundBgs.length)];
+    });
+</script>
+<script src="./assets/js/util.js"></script>
+<script src="./assets/js/goal.js"></script>
+<script src="./assets/js/player.js"></script>
+<script src="./assets/js/opponent.js"></script>
+<script src="./assets/js/ball.js"></script>
+<script src="./assets/js/item.js"></script>
+<script src="./assets/js/main.js"></script>
 </body>
-
 </html>
