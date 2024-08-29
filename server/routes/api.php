@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PortfolioController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -30,7 +31,12 @@ Route::middleware(['auth:sanctum'])->group(function() {
 
         Route::post('/blog', [BlogController::class, 'create']);
         Route::get('/blog', [BlogController::class, 'get']);
-        Route::put('/blog/{bannerID}', [BlogController::class, 'update']);
-        Route::delete('/blog/{bannerID}', [BlogController::class, 'delete']);
+        Route::post('/blog/{blogId}', [BlogController::class, 'update']);
+        Route::delete('/blog/{blogID}', [BlogController::class, 'delete']);
+        
+        Route::post('/portofolio', [PortfolioController::class, 'create']);
+        Route::get('/portofolio', [PortfolioController::class, 'get']);
+        Route::post('/portofolio/{portofolioID}', [PortfolioController::class, 'update']);
+        Route::delete('/portofolio/{portofolioID}', [PortfolioController::class, 'delete']);
     });
 });

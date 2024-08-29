@@ -13,19 +13,19 @@ class BlogController extends Controller
         $path = $request->file('blog_image')->store('images', 'public');
         $blog = Blog::create([
             'blog_image' => $path ,
-            'blog_title' => $request->title,
+            'blog_title' => $request->blog_title,
             'description' => $request->description,
             'author' => $request->author,
             'tags' =>$request->tags,
-            'date' =>$request->date,
+            'date' =>now(),
         ]);
         return response()->json([
             'message' => 'Blog created successfully!',
             'data' => $blog
         ], 201);
     }
-    public function update(UpdateBlogRequest $request, $bannerID){
-        $blog = Blog::findOrFail($bannerID);
+    public function update(UpdateBlogRequest $request, $blogID){
+        $blog = Blog::findOrFail($blogID);
         $blog->update($request->all());
         return response()->json([
             'message' => 'Blog updated successfully!',
@@ -36,12 +36,14 @@ class BlogController extends Controller
     {
         $blogs = Blog::all();
 
-        return response()->json($blogs);
+        return response()->json([
+            'blogs' => $blogs
+        ],200);
     }
 
-    public function delete($bannerID)
+    public function delete($blogID)
     {
-        $blog = Blog::findOrFail($bannerID);
+        $blog = Blog::findOrFail($blogID);
         $blog->delete();
 
         return response()->json([

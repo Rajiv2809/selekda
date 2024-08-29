@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class BlogRequest extends FormRequest
+class PortofolioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,10 @@ class BlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blog_image' => 'required|image|mimes:jpeg,jpg,webp,png,gif|max:2048',
-            'blog_title' => 'required|string|max:255',
+            'portofolio_image' => 'required|image|mimes:jpeg,jpg,webp,png,gif|max:2048',
+            'portofolio_title' => 'required|string|max:255',
             'description' => 'required|string',
             'author' => 'required|string|max:255',
-            'tags' => 'required|string',
-            
         ];
     }
     public function failedValidation(Validator $validator){
