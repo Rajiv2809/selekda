@@ -5,6 +5,7 @@ use App\Http\Middleware\AdminAccess;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogCommentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PortfolioController;
 
@@ -16,12 +17,13 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware(['auth:sanctum'])->group(function() {
+    Route::get('/me',[AuthController::class, 'me']);
+    Route::post('/update/user',[AuthController::class, 'update']);
 
-
-    Route::post('/blog-comment', [BannerController::class, 'create']);
-    Route::get('/blog-comment', [BannerController::class, 'get']);
-    Route::put('/blog-comment/{bannerID}', [BannerController::class, 'update']);
-    Route::delete('/blog-comment/{bannerID}', [BannerController::class, 'delete']);
+    Route::post('/blog-comment', [BlogCommentController::class, 'create']);
+    Route::get('/blog-comment', [BlogCommentController::class, 'get']);
+    Route::put('/blog-comment/{bannerID}', [BlogCommentController::class, 'update']);
+    Route::delete('/blog-comment/{bannerID}', [BlogCommentController::class, 'delete']);
 
     Route::middleware([AdminAccess::class])->group(function () {
         Route::post('/banner', [BannerController::class, 'create']);
@@ -38,5 +40,7 @@ Route::middleware(['auth:sanctum'])->group(function() {
         Route::get('/portofolio', [PortfolioController::class, 'get']);
         Route::post('/portofolio/{portofolioID}', [PortfolioController::class, 'update']);
         Route::delete('/portofolio/{portofolioID}', [PortfolioController::class, 'delete']);
+
+        
     });
 });

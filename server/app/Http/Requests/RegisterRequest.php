@@ -30,7 +30,6 @@ class RegisterRequest extends FormRequest
             'dateOfBirth' => 'required|date_format:Y-m-d',
             'phoneNumber' => 'required|string|max:15',
             'profilePicture' => 'required|image|mimes:jpeg,jpg,webp,png,gif|max:2048',
-            'squad_id' => 'nullable|exists:squads,id'
         ];
     }
     protected function failedValidation(Validator $validator){

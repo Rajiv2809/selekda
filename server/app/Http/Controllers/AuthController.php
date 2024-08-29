@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -60,4 +61,18 @@ class AuthController extends Controller
         'user' => $user
     ], 200);
 }
+    public function me(){
+        return response()->json([
+            'data' => Auth::user()
+        ],200);
+    }
+    public function update(UpdateUserRequest $request){
+        $user = Auth::user();
+        $user->update($request->all());
+        return response()->json([
+            'message' => 'User updated successfully!',
+            'data' => $user
+        ], 200);
+
+    }
 }
