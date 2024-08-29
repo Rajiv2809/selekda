@@ -1,18 +1,18 @@
 class Player {
     constructor(game) {
         this.game = game;
-        this.x = game.width - (game.width/2) - 40; // Initializing x position
-        this.y = game.height - 40 - (game.height/2); // Initializing y position to be on the ground
+        this.x = game.width - (game.width/2) - 40; 
+        this.y = game.height - 40 - (game.height/2); 
         this.spriteHeight = 40;
         this.spriteWidth = 40;
         this.height = 40;
         this.width = 40;
-        this.speedX = 0; // Initial horizontal speed is 0
-        this.maxSpeedX = 4; // Maximum horizontal speed
-        this.speedY = 0; // Initial vertical speed is 0
-        this.jumpSpeed = -10; // Negative value to move upwards
-        this.gravity = 0.35; // Gravity to pull the player down
-        this.grounded = false; // To check if the player is on the ground or platform
+        this.speedX = 0; 
+        this.maxSpeedX = 4; 
+        this.speedY = 0; 
+        this.jumpSpeed = -10; 
+        this.gravity = 0.35;
+        this.grounded = false; 
         this.boostedSpeedX = 6;
     }
 
@@ -122,7 +122,7 @@ class Player {
                 } else if(box.color === 1){
                     this.maxSpeedX = this.boostedSpeedX;
                     setTimeout(() => {
-                        this.maxSpeedX = 4; // Revert to normal speed after 3 seconds
+                        this.maxSpeedX = 4;
                     }, 3000);
                     this.game.boxes.splice(this.game.boxes.indexOf(box), 1);
                 }else if(box.color === 2){

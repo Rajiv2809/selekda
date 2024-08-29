@@ -8,12 +8,25 @@ class Game {
         this.ball = null;
         this.level = null;
         this.enemy = null;
-        this.startGame = false;
+        this.startGame = true;
+        this.player = new Player(this);
+        window.addEventListener('keydown', e => {
+            if (!this.gameOver) {
+
+                if (e.key.toLowerCase() === 'd') this.player.startMoveRight();
+                if (e.key.toLowerCase() === 'a') this.player.startMoveLeft();
+                if (e.key.toLowerCase() === 'w') this.player.playerJump();
+            }
+        });
+
+        window.addEventListener('keyup', e => {
+            if (e.key.toLowerCase() === 'd') this.player.stopMoveRight();
+            if (e.key.toLowerCase() === 'a') this.player.stopMoveLeft();
+        });
     }
     render() {
-        this.ctx.clearRect(0, 0, this.width, this.height);
-        this.ctx.fillStyle = 'blue';
-        this.ctx.fillRect(50, 50, 100, 100); 
+       this.player.draw();
+       this.player.update();
     }
 }
 
@@ -113,7 +126,7 @@ window.addEventListener('load', function () {
     canvas.height = 600;
 
     const game = new Game(canvas);
-    const menu = new Menu(game);
+    
     
     // Game loop
     function animate() {
