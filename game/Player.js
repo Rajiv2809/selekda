@@ -19,7 +19,6 @@ class Player {
     draw() {
         this.game.ctx.fillStyle = 'red';
         this.game.ctx.fillRect(this.x, this.y, this.spriteWidth, this.spriteHeight);
-        
     }
 
     update() {
@@ -30,7 +29,7 @@ class Player {
 
    
         if (this.isTouchingBottom()) {
-            this.y = this.game.height - this.height-100;
+            this.y = this.game.height - this.height-120;
             this.speedY = 0;
             this.grounded = true;
         } else {
@@ -38,15 +37,15 @@ class Player {
         }
 
         if (this.touchingLeft()) {
-            this.x = 0;
+            this.x = 50;
         }
         if (this.touchingRight()) {
-            this.x  = this.game.width - this.spriteWidth - 200;
+            this.x  = this.game.width - this.spriteWidth - 50;
         }
     }
 
     isTouchingBottom() {
-        return this.y >= this.game.height - this.height - 100;
+        return this.y >= this.game.height - this.height - 120;
     }
 
     isTouchingTop() {
@@ -78,24 +77,17 @@ class Player {
 
 
     touchingLeft() {
-        return this.x <= 0;
+        return this.x <= 50;
     }
 
     touchingRight() {
-        return this.x >= this.game.width - this.spriteWidth - 200;
+        return this.x >= this.game.width - this.spriteWidth - 50;
     }
 
 
   
   
    
-    checkIfPlayerFall(){
-        if(this.y >= this.game.height -this.height){
-            this.x = this.game.width - (this.game.width/2) - 40;
-            this.y = this.game.height - 40 - (this.game.height/2);
-            this.game.health = this.game.health - 1;
-        }
-    }
     isCollidindBox(box){
         const playerRight = this.x + this.width;
         const playerBottom = this.y + this.height;

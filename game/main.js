@@ -10,7 +10,12 @@ class Game {
         this.enemy = null;
         this.startGame = true;
         this.player = new Player(this);
-        this.Background= new Background(this)
+        this.background= new Background(this);
+        this.gawang = new Gawang(this)
+        this.gawang2 = new Gawang(this, 'enemy');
+        this.myScore = 0,
+        this.enemyScore = 0,
+        this.ball = new Ball(this);
         window.addEventListener('keydown', e => {
             if (!this.gameOver) {
 
@@ -26,7 +31,11 @@ class Game {
         });
     }
     render() {
-        this.Background.draw()
+        this.background.draw()
+        this.gawang.draw();
+        this.gawang2.draw();
+        this.ball.update(); 
+        this.ball.draw(); 
         this.player.update();
         this.player.draw();
     }
