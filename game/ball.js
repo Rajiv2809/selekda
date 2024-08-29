@@ -4,7 +4,7 @@ class Ball {
         this.ctx = game.ctx;
 
         
-        this.radius = 15; 
+        this.radius = 30; 
         this.x = game.width / 2;
         this.y = game.height / 2; 
         this.dx = 4; 

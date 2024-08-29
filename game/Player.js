@@ -19,9 +19,11 @@ class Player {
     draw() {
         this.game.ctx.fillStyle = 'red';
         this.game.ctx.fillRect(this.x, this.y, this.spriteWidth, this.spriteHeight);
+        
     }
 
-    update() {
+
+    update(ball) {
 
         this.speedY += this.gravity;
         this.y += this.speedY;
@@ -42,7 +44,40 @@ class Player {
         if (this.touchingRight()) {
             this.x  = this.game.width - this.spriteWidth - 50;
         }
+        this.playerKick(ball)
     }
+    isCollidingWithBall(ball) {
+        const ballRight = ball.x + ball.radius;
+        const ballLeft = ball.x - ball.radius;
+        const ballTop = ball.y - ball.radius;
+        const ballBottom = ball.y + ball.radius;
+
+        const playerRight = this.x + this.width;
+        const playerLeft = this.x;
+        const playerTop = this.y;
+        const playerBottom = this.y + this.height;
+
+        return ballRight > playerLeft &&
+               ballLeft < playerRight &&
+               ballBottom > playerTop &&
+               ballTop < playerBottom;
+    }
+
+
+    handleBallCollision(ball) {
+        const dx = ball.x - (this.x + this.width / 2);
+        const dy = ball.y - (this.y + this.height / 2);
+        const angle = Math.atan2(dy, dx);
+
+        ball.dx = -Math.cos(angle) * ball.dx;
+        ball.dy = -Math.sin(angle) * ball.dy;
+
+
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+    }
+
+   
 
     isTouchingBottom() {
         return this.y >= this.game.height - this.height - 120;
@@ -74,6 +109,9 @@ class Player {
             this.grounded = false;
         }
     }
+    playerKick(){
+
+    }
 
 
     touchingLeft() {
@@ -88,6 +126,13 @@ class Player {
   
   
    
+    checkIfPlayerFall(){
+        if(this.y >= this.game.height -this.height){
+            this.x = this.game.width - (this.game.width/2) - 40;
+            this.y = this.game.height - 40 - (this.game.height/2);
+            this.game.health = this.game.health - 1;
+        }
+    }
     isCollidindBox(box){
         const playerRight = this.x + this.width;
         const playerBottom = this.y + this.height;
