@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class BlogCommentController extends Controller
 {
-    public function create(BlogCommentRequest $request, ) {
+    public function create(BlogCommentRequest $request ) {
         
     }
 }
