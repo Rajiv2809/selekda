@@ -3,7 +3,7 @@ import image1 from '../assets/MEDIA_FILES/IMAGES/images (17).jpg'
 export default function Service() {
   return (
     <>
-    <section class="service">
+    <section className="service">
         <h1>
             service
         </h1>

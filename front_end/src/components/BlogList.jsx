@@ -16,20 +16,20 @@ export default function BlogList() {
     return (
         <>
             {!loading && blogs.length > 0 && blogs.map((item, index )=> (
-                <div key={index} class="blog">
-                    <div class="author">
+                <div key={index} className="blog">
+                    <div className="author">
                         <h4><b>Author : {item.author}</b></h4>
                     </div>
-                    <div class="content">
+                    <div className="content">
                         <img src={`http://127.0.0.1:8000/storage/${item.blog_image}`} alt="" width="472" height="321" />
-                        <div class="text-blog">
+                        <div className="text-blog">
                         <h1>{item.blog_title}</h1>
 
                             <p>{item.description}
                             </p>
 
                             <b>{item.date}</b>
-                            <div class="info">
+                            <div className="info">
                                 <h5>Comment: 12k</h5>
                                 <h5>views : 12k</h5>
                             </div>

@@ -5,12 +5,12 @@ import logo3 from '../assets/MEDIA_FILES/SOCIAL_MEDIA/Black and White/youtube.pn
 export default function Footer() {
   return (
     <footer>
-    <div class="logo">
+    <div className="logo">
         <img src={logo1} alt=""/>
         <img src={logo2} alt=""/>
         <img src={logo3} alt=""/>
     </div>
-    <div class="design">design by : RAJIV</div>
+    <div className="design">design by : RAJIV</div>
 
 </footer>
   )

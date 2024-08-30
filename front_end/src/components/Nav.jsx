@@ -8,7 +8,7 @@ export default function Nav() {
     return (
         <nav>
             <img src={Logo} alt="" width="70" height="70"/>
-                <div class="nav-list">
+                <div className="nav-list">
                     <li><a href="/home">HOME</a></li>
                     <li>ABOUT</li>
                     <li><a href="/blogs">BLOGS</a></li>

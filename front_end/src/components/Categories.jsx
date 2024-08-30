@@ -4,7 +4,7 @@ export default function Categories() {
   return (
     <footer>
         <h1>CATEGORIES</h1>
-        <div class="list-categories">
+        <div className="list-categories">
             <ul>
                 <li>Web Design</li>
                 <li>Graphic Design</li>

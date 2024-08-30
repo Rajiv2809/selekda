@@ -19,23 +19,23 @@ export default function ListPortofolios() {
 
 
             {!loading && portofolios.length > 0 && portofolios.map((item, index) => (
-                <div key={index} class="portofolio">
-                    <div class="portofolio-content">
+                <div key={index} className="portofolio">
+                    <div className="portofolio-content">
                         <img src={`http://127.0.0.1:8000/storage/${item.portofolio_image}`} width="309" height="185" alt="" />
 
-                        <div class="portofolio-text">
+                        <div className="portofolio-text">
                             <h4>{item.portofolio_title} </h4>
                             <p>{item.description}
                             </p>
                         </div>
-                        <div class="stats">
+                        <div className="stats">
                             <h4>Author: {item.author}</h4>
-                            <div class="views">
+                            <div className="views">
 
-                                <div class="views">
+                                <div className="views">
                                     <span>&#128065; 1200</span>
                                 </div>
-                                <div class="likes">
+                                <div className="likes">
                                     <span>&#128077; 1200</span>
                                 </div>
                             </div>

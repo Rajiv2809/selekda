@@ -2,7 +2,7 @@ import React from 'react'
 import image from '../assets/MEDIA_FILES/IMAGES/images (3).jpg'
 export default function Portofolio() {
   return (
-    <section class="portofolios">
+    <section className="portofolios">
         <img src={image} width="591" height="822" alt=""/>
         <div>
             <p>
