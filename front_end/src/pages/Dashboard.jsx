@@ -5,9 +5,10 @@ import SideBar from '../components/SideBar';
 import Nav from '../components/Nav';
 
 export default function Dashboard() {
-  const { currentUser } = useStateContext();
-  console.log(currentUser);
-
+  const { currentUser,loading } = useStateContext();
+  
+  console.log();
+  
   if (currentUser.role == 'user') {
     <Navigate to='/home' />
   }
@@ -20,7 +21,9 @@ export default function Dashboard() {
             <div></div>
             <div className="search-dashboard"></div>
             <div className="profile">
-              <img src={} alt="" />
+              {!loading && (
+                <img src={`${import.meta.env.VITE_BASE_URL}${currentUser.profile_picture}`} alt="" />
+              )}
             </div>
           </div>
 

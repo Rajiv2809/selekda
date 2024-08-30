@@ -20,10 +20,10 @@ export default function Login() {
         })
     }
   return (
-    <form method='post' onSubmit={login}>
-        <input value={username} onInput={e => setUsername(e.target.value)} type="text" placeholder="Username"/>
-        <input value={password} onInput={e => setPassword(e.target.value)} type="password" placeholder="Password"/>
-        <input  type="submit" value="Login"/>
+    <form className='login-form' method='post' onSubmit={login}>
+        <input className='username' value={username} onInput={e => setUsername(e.target.value)} type="text" placeholder="Username"/>
+        <input className='password' value={password} onInput={e => setPassword(e.target.value)} type="password" placeholder="Password"/>
+        <input  className='submit-login' type="submit" value="Login"/>
         <a href="/register">Register</a>
     </form>
   )
