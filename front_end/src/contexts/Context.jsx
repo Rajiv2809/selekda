@@ -9,6 +9,8 @@ const  StateContext = createContext({
         color: '',
         show: false,
     },
+    loading: true,
+    setLoading : () => {},
     setToken: () => {},
     setToast: () => {},
     setCurrentUser: () => {},
@@ -19,7 +21,7 @@ export const ContextProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({});
     const [userToken, setUserToken] = useState(localStorage.getItem('accessToken'));
     const [toast, setToast] =useState({message:'', color:'', show:false})
-
+    const [loading, setLoading] =useState(true)
     const setToken = (token) => {
         if(token){
             localStorage.setItem('accessToken', token)
@@ -43,6 +45,8 @@ export const ContextProvider = ({children}) => {
                 currentUser,
                 userToken,
                 toast,
+                loading,
+                setLoading,
                 setCurrentUser,
                 setUserToken,
                 setToken,

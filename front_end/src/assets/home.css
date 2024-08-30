@@ -2,7 +2,10 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
+
 
 nav {
     display: flex;
@@ -10,11 +13,13 @@ nav {
     align-items: center;
 }
 
+
 .nav-list {
     display: flex;
-    list-style: none;
+    color: black;
     gap: 3rem;
     align-items: center;
+    text-decoration: none;
 }
 
 nav button {

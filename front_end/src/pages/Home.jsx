@@ -7,7 +7,11 @@ import About from '../components/About'
 import Service from '../components/Service'
 import Portofolio from '../components/Portofolio'
 import Footer from '../components/Footer'
+import Testimonial from '../components/Testimonial'
+import { useStateContext } from '../contexts/Context';
 export default function Home() {
+  
+  
   return (
     <>
       <Nav/>
@@ -20,7 +24,7 @@ export default function Home() {
         <input type="text"/>
         <button>SEARCH</button>
       </section>
-      
+      <Testimonial/>
       <Footer/>
     </>
   );

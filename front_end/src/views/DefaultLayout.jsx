@@ -6,14 +6,18 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 
 export default function DefaultLayout() {
-  const {showToast, setToken, userToken, setCurrentUser, currentUser} = useStateContext();
+  const {showToast, setToken, userToken, setCurrentUser, currentUser, setLoading} = useStateContext();
   useEffect(() => {
     axiosClient.get('/me').then(({data}) => {
       setCurrentUser(data)
+      setLoading(false)
     }).catch(({res}) => {
       showToast(res.data.message, 'red')
     })
+
+    
   },[])
+  
   if(!userToken){
     return <Navigate to="/login" />
   }
