@@ -25,19 +25,19 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::put('/blog-comment/{bannerID}', [BlogCommentController::class, 'update']);
     Route::delete('/blog-comment/{bannerID}', [BlogCommentController::class, 'delete']);
 
+    Route::get('/banner', [BannerController::class, 'get']);
+    Route::get('/blog', [BlogController::class, 'get']);
+    Route::get('/portofolio', [PortfolioController::class, 'get']);
     Route::middleware([AdminAccess::class])->group(function () {
         Route::post('/banner', [BannerController::class, 'create']);
-        Route::get('/banner', [BannerController::class, 'get']);
         Route::put('/banner/{bannerID}', [BannerController::class, 'update']);
         Route::delete('/banner/{bannerID}', [BannerController::class, 'delete']);
 
         Route::post('/blog', [BlogController::class, 'create']);
-        Route::get('/blog', [BlogController::class, 'get']);
         Route::post('/blog/{blogId}', [BlogController::class, 'update']);
         Route::delete('/blog/{blogID}', [BlogController::class, 'delete']);
         
         Route::post('/portofolio', [PortfolioController::class, 'create']);
-        Route::get('/portofolio', [PortfolioController::class, 'get']);
         Route::post('/portofolio/{portofolioID}', [PortfolioController::class, 'update']);
         Route::delete('/portofolio/{portofolioID}', [PortfolioController::class, 'delete']);
 

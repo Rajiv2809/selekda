@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import axiosClient from '../axios'
 import { useStateContext } from '../contexts/Context';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 
 
@@ -18,6 +18,8 @@ export default function DefaultLayout() {
     return <Navigate to="/login" />
   }
   return (
-    <div>DefaultLayout</div>
+    <div>
+      <Outlet/>
+    </div>
   )
 }
