@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import axiosClient from '../axios'
 import { useStateContext } from '../contexts/Context';
 import { Navigate, Outlet } from 'react-router-dom';
+import Toast from '../components/Toast';
 
 
 
@@ -23,6 +24,7 @@ export default function DefaultLayout() {
   }
   return (
     <div>
+      <Toast/>
       <Outlet/>
     </div>
   )

@@ -2,13 +2,16 @@ import React from 'react'
 import { useStateContext } from '../contexts/Context'
 import { Navigate } from 'react-router-dom';
 import SideBar from '../components/SideBar';
-import Nav from '../components/Nav';
+import Bannertable from '../components/Bannertable';
+import BlogTable from '../components/BlogTable';
+
+import '../assets/Sidebar.css'
 
 export default function Dashboard() {
-  const { currentUser,loading } = useStateContext();
-  
+  const { currentUser, loading } = useStateContext();
+
   console.log();
-  
+
   if (currentUser.role == 'user') {
     <Navigate to='/home' />
   }
@@ -19,14 +22,23 @@ export default function Dashboard() {
         <div className='dashboard-item'>
           <div className="nav-sidebar">
             <div></div>
-            <div className="search-dashboard"></div>
+            <div className="search-dashboard">
+              <section class="searchs">
+                <input className='search-input' type="text" />
+                <button className='search-button'>SEARCH</button>
+              </section>
+            </div>
             <div className="profile">
-              {!loading && (
+              {/* {!loading && (
                 <img src={`${import.meta.env.VITE_BASE_URL}${currentUser.profile_picture}`} alt="" />
-              )}
+              )} */}
             </div>
           </div>
+          <div className='isi-dashboard'>
 
+            <Bannertable />
+            <BlogTable/>
+          </div>
         </div>
       </div>
     </>

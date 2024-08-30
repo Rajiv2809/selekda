@@ -14,7 +14,8 @@ export default function Login() {
             password: password,
             }).then(({data}) => {
             setToken(data.token)
-            showToast('login success');
+            showToast(data.message, 'green')
+
         }).catch((err) => {
             showToast(err.response.data.message, 'red');
         })

@@ -1,0 +1,66 @@
+
+
+.banner-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.banner-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.banner-table-head {
+    background-color: #2e6da4;
+}
+
+.banner-table-header {
+    color: white;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.banner-table-body {
+    background-color: #f2f2f2;
+}
+
+.banner-table-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.banner-table-cell {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.banner-image {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+.button-delete{
+    background-color: rgb(226, 27, 27);
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+}
+.button-update{
+    background-color: rgb(27, 57, 226);
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+}

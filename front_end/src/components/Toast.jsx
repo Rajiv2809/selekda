@@ -5,11 +5,11 @@ export default function Toast() {
     const {toast} = useStateContext()
   return (
     <>
-    {!toast.show && (
-        <div className='toast' style={{backgroundColor: toast.color}}>toast</div>
+    {toast.show && (
+        <div className='toast' style={{backgroundColor: 'blue'}}>{toast.message}</div>
     )}
     
     </>
     // <div className='toast'>Toast</div>
-  )
+     )
 }

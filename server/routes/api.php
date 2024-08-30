@@ -30,7 +30,7 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::get('/portofolio', [PortfolioController::class, 'get']);
     Route::middleware([AdminAccess::class])->group(function () {
         Route::post('/banner', [BannerController::class, 'create']);
-        Route::put('/banner/{bannerID}', [BannerController::class, 'update']);
+        Route::post('/banner/{bannerID}', [BannerController::class, 'update']);
         Route::delete('/banner/{bannerID}', [BannerController::class, 'delete']);
 
         Route::post('/blog', [BlogController::class, 'create']);

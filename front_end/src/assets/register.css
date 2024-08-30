@@ -1,4 +1,4 @@
-/* General form styling */
+
 form {
     max-width: 500px;
     margin: 0 auto;
@@ -8,12 +8,12 @@ form {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Form group styling */
+
 .form-group {
     margin-bottom: 20px;
 }
 
-/* Label styling */
+
 .form-group label {
     font-size: 14px;
     font-weight: bold;
@@ -22,7 +22,7 @@ form {
     display: block;
 }
 
-/* Input styling */
+
 .input-name,
 .input-username,
 .input-email,
@@ -39,7 +39,7 @@ form {
     outline: none;
 }
 
-/* Input focus effect */
+
 .input-name:focus,
 .input-username:focus,
 .input-email:focus,
@@ -49,12 +49,12 @@ form {
     border-color: #007bff;
 }
 
-/* File input */
+
 .input-profilePicture {
     padding: 5px;
 }
 
-/* Submit button styling */
+
 .submit-btn {
     width: 100%;
     padding: 12px;
@@ -68,12 +68,12 @@ form {
     transition: background-color 0.3s ease;
 }
 
-/* Submit button hover effect */
+
 .submit-btn:hover {
     background-color: #0056b3;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 600px) {
     form {
         padding: 15px;

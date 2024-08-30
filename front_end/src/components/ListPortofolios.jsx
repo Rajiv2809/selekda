@@ -21,7 +21,7 @@ export default function ListPortofolios() {
             {!loading && portofolios.length > 0 && portofolios.map((item, index) => (
                 <div key={index} className="portofolio">
                     <div className="portofolio-content">
-                        <img src={`http://127.0.0.1:8000/storage/${item.portofolio_image}`} width="309" height="185" alt="" />
+                        <img  src={import.meta.env.VITE_STORAGE_URL + '/' + item.portofolio_image} width="309" height="185" alt="" />
 
                         <div className="portofolio-text">
                             <h4>{item.portofolio_title} </h4>
