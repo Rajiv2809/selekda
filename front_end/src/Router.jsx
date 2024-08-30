@@ -5,6 +5,7 @@ import DefaultLayout from "./views/DefaultLayout";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Blogs from "./pages/Blogs";
+import Portofolios from "./pages/Portofolios";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:'blogs',
                 element:<Blogs/>
+            },
+            {
+                path:'/portofolios',
+                element:<Portofolios/>
             }
         ]
     }
