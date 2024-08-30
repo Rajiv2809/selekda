@@ -1,0 +1,37 @@
+.sidebar{
+   width: 350px;
+   background-color: #D9D9D9;
+   height: 100vh;
+   box-shadow: 15px 15px 0 0px rgb(0, 0, 0, 0.5);
+}
+.logo-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+.logo-side img{
+     width: 80px;
+}
+.list-sidebar{
+    font-size: 20px;
+    
+}
+.list-sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.list-sidebar ul li{
+    list-style:inside;
+}
+.dashboard-content{
+    display: flex;
+    flex-direction: row;
+}
+.dashboard-item{
+    width: 100%;
+    background-color: #D9D9D9;
+    height: 80px;
+}
