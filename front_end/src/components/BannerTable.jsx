@@ -32,7 +32,7 @@ export default function BannerTable() {
     return (
         <div className="banner-container">
             <h2 className="banner-heading">Banner Information</h2>
-            <a className='/button-update' href="/add-banner"></a>
+            <a className='button-add' href="/add-banner">add Blog</a>
             <table className="banner-table">
                 <thead className="banner-table-head">
                     <tr>

@@ -4,8 +4,10 @@ import { Navigate } from 'react-router-dom';
 import SideBar from '../components/SideBar';
 import Bannertable from '../components/Bannertable';
 import BlogTable from '../components/BlogTable';
+import PortofolioTable from '../components/PortofolioTable';
 
 import '../assets/Sidebar.css'
+import ListPortofolios from '../components/ListPortofolios';
 
 export default function Dashboard() {
   const { currentUser, loading } = useStateContext();
@@ -38,6 +40,7 @@ export default function Dashboard() {
 
             <Bannertable />
             <BlogTable/>
+            <PortofolioTable/>
           </div>
         </div>
       </div>
